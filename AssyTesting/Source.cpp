@@ -1,5 +1,5 @@
 /*
- * Assembly x64 testing with C++
+ * Assembly x64 "Intel" testing with C++
  * Return function in Assembly (return.asm)
  */
 #include <iostream>
