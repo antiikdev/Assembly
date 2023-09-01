@@ -8,22 +8,37 @@
 
 extern "C" void initialiseArray(int[]);
 
+void initialiseArrayTwo(int array[]) {
+	for (int i = 0; i < 5; i++) {
+		array[i] = 0;
+	}
+}
+
 
 // Main for testing
 int main() {
 	const int size = 5;
-	int array[size];
+	int arrayOne[size];
+	int arrayTwo[size];
 
-	// TODO: array size as a function variable
-	initialiseArray(array);
+	// TODO: array size given as a function variable
+	initialiseArray(arrayOne);
+	initialiseArrayTwo(arrayTwo);
 
-	std::cout << "Array indexes are ";
+	std::cout << "ArrayOne indexes are ";
 	for (int i = 0; i < size; i++) {
-		std::cout << array[i] << " ";
+		std::cout << arrayOne[i] << " ";
 	}
 
+	std::cout << "\n";
+
+	std::cout << "ArrayTwo indexes are ";
+	for (int i = 0; i < 5; i++) {
+		std::cout << arrayTwo[i] << " ";
+	}
 
 	return 0;
 
 }
+
 
