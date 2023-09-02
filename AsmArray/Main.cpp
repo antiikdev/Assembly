@@ -1,17 +1,32 @@
 /*
- * Assembly x64 "Intel" testing with C++
- * Array testing
+ * Assembly x64 "Intel" (MASM) testing with C++
+ * Array initialisation
  * @author Antiik.dev
  * @version 28 August 2023
  */
 #include <iostream>
 
-extern "C" void initialiseArray(int[]);
+// Declaration of external C function:
+extern "C" void initialiseArray(int array[], int size);
 
-void initialiseArrayTwo(int array[]) {
-	for (int i = 0; i < 5; i++) {
+
+// Initialises an array
+void initialiseArrayTwo(int array[], int size) {
+	for (int i = 0; i < size; i++) {
 		array[i] = 0;
 	}
+}
+
+
+// Prints an array
+void printArray(int array[], int size) {
+	std::cout << "Array indexes are ";
+	for (int i = 0; i < size; i++) {
+		std::cout << array[i] << " ";
+	}
+
+	// \n into output stream and flush beffer
+	std::cout << std::endl;
 }
 
 
@@ -21,23 +36,14 @@ int main() {
 	int arrayOne[size];
 	int arrayTwo[size];
 
-	// TODO: array size given as a function variable
-	initialiseArray(arrayOne);
-	initialiseArrayTwo(arrayTwo);
+	// Initialises an array with Assembly method:
+	initialiseArray(arrayOne, size);
+	// Initialises an array with C++ method:
+	initialiseArrayTwo(arrayTwo, size);
 
-	std::cout << "ArrayOne indexes are ";
-	for (int i = 0; i < size; i++) {
-		std::cout << arrayOne[i] << " ";
-	}
-
-	std::cout << "\n";
-
-	std::cout << "ArrayTwo indexes are ";
-	for (int i = 0; i < 5; i++) {
-		std::cout << arrayTwo[i] << " ";
-	}
-
-	return 0;
+	// Print the two arrays:
+	printArray(arrayOne, size);
+	printArray(arrayTwo, size);
 
 }
 
