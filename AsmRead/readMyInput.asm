@@ -3,7 +3,10 @@
 ; @author Antiik.dev
 ; @version 2 September 2023
 
+
 .code
+
+EXTERN fgetc:PROC	; Tell assembler where to find fgetc function
 
 readMyInput proc
 	; stack created
@@ -13,18 +16,13 @@ readMyInput proc
 	; Error value initialised (see Main.c)
 	mov rdi, -1
 
-	; Read variable
-	mov rsi, rcx	; FILE reading pointer
-	call fgetc		; Call fgetc function to read
+	; Read variable (calling convention)
+	mov rdi, [rcx]	; FILE from first argument, memory location pointed.
+	call fgetc		; Call fgetc function to read, stored in rax (return value)
 
-	; Check if End Of File marker (EOF)
-    cmp eax, EOF
-    je eof
+	; TODO: EOF is not checked! 
 
-	; Read character for return value
-	mov rdi, rax
 
-eof:
 	leave
 	ret
 

@@ -1,9 +1,10 @@
-# Assembly x64 "Intel" MASM projects with C++
+# Small Assembly x64 "Intel" MASM projects with C/C++
 
 
 ## Projects (folders)
-- AssyTesting, basic return function in Assembly
-- AsmArray, initialise an array with assembly
+- AssyTesting: basic return function in Assembly
+- AsmArray: initialise an array with assembly
+- AsmRead: reads user standard input and prints it
 
 
 
@@ -27,3 +28,4 @@
 - [WikiBooks. x86 Assembly.](https://en.wikibooks.org/wiki/X86_Assembly)
 - [WikiBooks. x86 Assembly/X86 Architecture](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture)
 - [Microsoft. x64 calling convention > Parameter passing](https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170)
+- [Microsoft. MASM for x64 (ml64.exe)](https://learn.microsoft.com/en-us/cpp/assembler/masm/masm-for-x64-ml64-exe?view=msvc-170)

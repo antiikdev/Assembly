@@ -1,6 +1,4 @@
 /*
- * TODO ERROR: Unresolved external symbol readMyInput in function main
- * 
  * Assembly x64 "Intel" (MASM) testing with C
  * Read standard input from user
  * @author Antiik.dev
@@ -8,12 +6,11 @@
  */
 #include <stdio.h>
 
-extern int readMyInput(FILE *input);
+extern int readMyInput(FILE * input);
 
 
 // Main for testing
 int main(int argc, char **argv) {
-	FILE* input = stdin;
 
 	// Read from user standard input (external Assembly method reading.asm)
 	int result = readMyInput(stdin);
@@ -24,7 +21,13 @@ int main(int argc, char **argv) {
 		return 1;
 	}
 
-	printf("Character read: %c\n", (char)result);
+	printf("Your input character read: %c\n", (char)result);
 
 	return 0;
 }
+
+/*
+ * Sources for issues solved
+ * - Issue with LNK2019: Macro assembler was not selected as a type. https://stackoverflow.com/questions/33751509/external-assembly-file-in-visual-studio
+ *
+ */
